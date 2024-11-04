@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c14sxfmpiyy4h"]
+
+[ext_resource type="Script" path="res://inimigos/inimigo1/inimigo_1.gd" id="1_s0rgo"]
+[ext_resource type="Texture2D" uid="uid://cky0jt3ppmg5c" path="res://asset/Wave Defense Game/Wave Defense Game/Ghost1.png" id="2_4gaae"]
+[ext_resource type="Texture2D" uid="uid://bc2vm8h2opo4f" path="res://asset/Wave Defense Game/Wave Defense Game/Ghost2.png" id="3_s6agi"]
+[ext_resource type="Texture2D" uid="uid://61i2jrqa4aan" path="res://asset/Wave Defense Game/Wave Defense Game/Ghost3.png" id="4_wvmw3"]
+[ext_resource type="Texture2D" uid="uid://e1nsuihc5iba" path="res://asset/Wave Defense Game/Wave Defense Game/Ghost4.png" id="5_0itst"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66yer"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4gaae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s6agi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wvmw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0itst")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="inimigo_1" type="CharacterBody2D"]
+script = ExtResource("1_s0rgo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_66yer")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.30388

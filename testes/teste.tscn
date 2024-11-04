@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://caw33w57d86uu"]
+
+[ext_resource type="PackedScene" uid="uid://c14sxfmpiyy4h" path="res://inimigos/inimigo1/inimigo_1.tscn" id="1_j3jha"]
+[ext_resource type="Texture2D" uid="uid://cjnotej0523ri" path="res://asset/Wave Defense Game/Wave Defense Game/Bullet.png" id="2_ttw35"]
+
+[node name="teste" type="Node2D"]
+
+[node name="inimigo_1" parent="." node_paths=PackedStringArray("target_player") instance=ExtResource("1_j3jha")]
+position = Vector2(74, 98)
+scale = Vector2(7, 7)
+target_player = NodePath("../CharacterBody2D")
+speed = 100.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(885, 52.0001)
+scale = Vector2(7, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_ttw35")
