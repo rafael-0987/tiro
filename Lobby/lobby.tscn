@@ -1,0 +1,189 @@
+[gd_scene load_steps=26 format=3 uid="uid://dlsgvqp1h4gtg"]
+
+[ext_resource type="Texture2D" uid="uid://cmnc8qrxv8bqu" path="res://Wave Defense Game/TheRoom.png" id="1_tce6y"]
+[ext_resource type="PackedScene" uid="uid://bl5s7ot2o15t6" path="res://Player/player.tscn" id="2_6sjr3"]
+[ext_resource type="Texture2D" uid="uid://dmaggppruc5rs" path="res://efeitos/rwbj2_0.png" id="4_l4c04"]
+[ext_resource type="Texture2D" uid="uid://by2bcwh4ruh7e" path="res://efeitos/rwbj2_2.png" id="5_652bv"]
+[ext_resource type="Texture2D" uid="uid://dka4bprh7uo1i" path="res://efeitos/rwbj2_4.png" id="6_m6qw3"]
+[ext_resource type="Texture2D" uid="uid://nuc4uw31tt1o" path="res://efeitos/rwbj2_6.png" id="7_sm4k0"]
+[ext_resource type="Texture2D" uid="uid://b8j7jfx2oujlt" path="res://efeitos/rwbj2_8.png" id="8_y4tsu"]
+[ext_resource type="Texture2D" uid="uid://baecsl44peb31" path="res://efeitos/rwbj2_10.png" id="9_f7vru"]
+[ext_resource type="Texture2D" uid="uid://dfoyfmhma4xjk" path="res://efeitos/rwbj2_12.png" id="10_0v8u3"]
+[ext_resource type="Texture2D" uid="uid://bm7lexybu4vxy" path="res://efeitos/rwbj2_14.png" id="11_lmkyc"]
+[ext_resource type="Texture2D" uid="uid://ckxatqnwpdydv" path="res://efeitos/rwbj2_16.png" id="12_juitc"]
+[ext_resource type="Texture2D" uid="uid://d4ilw81lv7gd4" path="res://efeitos/rwbj2_18.png" id="13_hfgdw"]
+[ext_resource type="Texture2D" uid="uid://cvygo7q5dywh1" path="res://efeitos/rwbj2_20.png" id="14_jtm4u"]
+[ext_resource type="Texture2D" uid="uid://cbpgtco504mkc" path="res://efeitos/rwbj2_22.png" id="15_ohp6n"]
+[ext_resource type="Texture2D" uid="uid://b7l72dw0jykmv" path="res://efeitos/rwbj2_24.png" id="16_pyewh"]
+[ext_resource type="Texture2D" uid="uid://c4l73s4gcm1s7" path="res://efeitos/rwbj2_26.png" id="17_swnrj"]
+[ext_resource type="Texture2D" uid="uid://dv0wrkkqu4oaj" path="res://efeitos/rwbj2_28.png" id="18_cypbk"]
+[ext_resource type="Texture2D" uid="uid://bd1rjxbmg5drh" path="res://shadow/42c6ce5fbfe0aa810c7aa9ee547d9728.jpg" id="19_562j5"]
+[ext_resource type="PackedScene" uid="uid://x5uc4ew6r8py" path="res://beneco/de_treino/boneco_de_treinamento.tscn" id="20_i7bpx"]
+[ext_resource type="PackedScene" uid="uid://c14sxfmpiyy4h" path="res://inimigos/inimigo1/inimigo_1.tscn" id="20_r3e6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68sdq"]
+size = Vector2(119, 1497.46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cpej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_l4c04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_652bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m6qw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sm4k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y4tsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f7vru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0v8u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lmkyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_juitc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hfgdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jtm4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ohp6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pyewh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_swnrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cypbk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_38qep"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_m4kya"]
+resource_name = "pulse"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.57, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rncxh"]
+_data = {
+"RESET": SubResource("Animation_38qep"),
+"pulse": SubResource("Animation_m4kya")
+}
+
+[node name="Lobby" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(583, 319)
+scale = Vector2(4.34, 4.34)
+texture = ExtResource("1_tce6y")
+
+[node name="Player" parent="." instance=ExtResource("2_6sjr3")]
+position = Vector2(502, 381)
+scale = Vector2(2.98, 2.98)
+
+[node name="Colissao" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Colissao"]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colissao/StaticBody2D"]
+position = Vector2(-214, 320)
+shape = SubResource("RectangleShape2D_68sdq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colissao/StaticBody2D"]
+position = Vector2(1384, 324)
+shape = SubResource("RectangleShape2D_68sdq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colissao/StaticBody2D"]
+position = Vector2(579, -4)
+rotation = 1.56958
+shape = SubResource("RectangleShape2D_68sdq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Colissao/StaticBody2D"]
+position = Vector2(571, 769)
+rotation = 1.56958
+shape = SubResource("RectangleShape2D_68sdq")
+
+[node name="Efeitos" type="Node2D" parent="."]
+
+[node name="Animated" type="AnimatedSprite2D" parent="Efeitos"]
+position = Vector2(1005, -152)
+sprite_frames = SubResource("SpriteFrames_6cpej")
+autoplay = "default"
+
+[node name="Animated2" type="AnimatedSprite2D" parent="Efeitos"]
+position = Vector2(205, -168)
+sprite_frames = SubResource("SpriteFrames_6cpej")
+autoplay = "default"
+
+[node name="Shadow" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Shadow"]
+position = Vector2(1242, 106)
+color = Color(0.945098, 0.882353, 0.0823529, 1)
+energy = 0.0
+texture = ExtResource("19_562j5")
+texture_scale = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Shadow/PointLight2D"]
+libraries = {
+"": SubResource("AnimationLibrary_rncxh")
+}
+autoplay = "pulse"
+speed_scale = 0.615
+
+[node name="inimigo_1" parent="." node_paths=PackedStringArray("target_player") instance=ExtResource("20_r3e6v")]
+position = Vector2(927, 270)
+scale = Vector2(2.98, 2.98)
+target_player = NodePath("../Player")
+speed = 150.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Boneco_de_treinamento" parent="Node2D" instance=ExtResource("20_i7bpx")]
+position = Vector2(1216, 162)

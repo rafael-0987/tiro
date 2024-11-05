@@ -29,9 +29,7 @@ animations = [{
 [node name="inimigo_1" type="CharacterBody2D"]
 script = ExtResource("1_s0rgo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_66yer")
 animation = &"idle"
 autoplay = "idle"

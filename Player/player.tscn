@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bl5s7ot2o15t6"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_iwyxs"]
+[ext_resource type="Texture2D" uid="uid://cwyc8n3eu0482" path="res://Wave Defense Game/Player1.png" id="2_k24bp"]
+[ext_resource type="Texture2D" uid="uid://ddod8ggwgrn1p" path="res://Wave Defense Game/Player2.png" id="3_d5xlx"]
+[ext_resource type="Texture2D" uid="uid://cr616dfb035ci" path="res://Wave Defense Game/Player3.png" id="4_47wy1"]
+[ext_resource type="Texture2D" uid="uid://c3a6bjb0khb2m" path="res://Wave Defense Game/Player4.png" id="5_hn0j5"]
+[ext_resource type="PackedScene" uid="uid://db5vec5lqv4yt" path="res://armas/arma1/arma_1.tscn" id="6_ehdqu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3f7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k24bp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k24bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d5xlx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_47wy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hn0j5")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxv3c"]
+size = Vector2(10, 20)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_iwyxs")
+distancia_arma = 12
+
+[node name="Animated" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e3f7h")
+animation = &"run"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bxv3c")
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="arma_1" parent="." instance=ExtResource("6_ehdqu")]
+position = Vector2(14, 1)

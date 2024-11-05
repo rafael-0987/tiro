@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://bacg5bqojpnf4"]
+
+[ext_resource type="Script" path="res://efeitos/scripts/efeito_dano.gd" id="1_0uqk6"]
+[ext_resource type="FontFile" uid="uid://b7dvleujekjoy" path="res://fontes-letra/Public_Pixel_Font_1_2/PublicPixel.woff" id="2_28xms"]
+
+[sub_resource type="Animation" id="Animation_ix8oo"]
+resource_name = "efeito"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -100, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_fbskq"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3db6"]
+_data = {
+"RESET": SubResource("Animation_fbskq"),
+"efeito": SubResource("Animation_ix8oo")
+}
+
+[node name="efeito_dano" type="Node2D"]
+script = ExtResource("1_0uqk6")
+
+[node name="label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_28xms")
+theme_override_font_sizes/font_size = 24
+text = "2"
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f3db6")
+}
+autoplay = "efeito"
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

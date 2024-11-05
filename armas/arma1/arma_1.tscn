@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://db5vec5lqv4yt"]
+
+[ext_resource type="Script" path="res://armas/arma1/arma_1.gd" id="1_aal81"]
+[ext_resource type="Texture2D" uid="uid://clbtany722k1s" path="res://Wave Defense Game/Gun1.png" id="2_cfykm"]
+
+[node name="arma_1" type="Node2D" node_paths=PackedStringArray("boca_arma")]
+script = ExtResource("1_aal81")
+boca_arma = NodePath("position_boca")
+
+[node name="position_boca" type="Marker2D" parent="."]
+position = Vector2(13, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cfykm")
